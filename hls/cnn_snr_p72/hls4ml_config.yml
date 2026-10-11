@@ -1,0 +1,164 @@
+Backend: Vitis
+ClockPeriod: 5.0
+ClockUncertainty: 27%
+HLSConfig:
+  LayerName:
+    conv1:
+      ConvImplementation: LineBuffer
+      ParallelizationFactor: 1
+      Precision:
+        accum: fixed<32,14>
+        bias: fixed<8,1,TRN,WRAP,0>
+        result: fixed<32,14>
+        weight: fixed<8,1,TRN,WRAP,0>
+      ReuseFactor: 1
+      Trace: false
+    conv1_linear:
+      Precision:
+        accum: fixed<32,14>
+        result: fixed<32,14>
+        table: fixed<18,8,TRN,WRAP,0>
+      ReuseFactor: 1
+      TableSize: 1024
+      Trace: false
+    conv1_relu:
+      Precision:
+        result: ufixed<8,2,RND_CONV,SAT,0>
+        table: fixed<18,8,TRN,WRAP,0>
+      ReuseFactor: 1
+      TableSize: 1024
+      Trace: false
+    conv2:
+      ConvImplementation: LineBuffer
+      ParallelizationFactor: 1
+      Precision:
+        accum: fixed<32,14>
+        bias: fixed<8,1,TRN,WRAP,0>
+        result: fixed<32,14>
+        weight: fixed<8,1,TRN,WRAP,0>
+      ReuseFactor: 1
+      Trace: false
+    conv2_linear:
+      Precision:
+        accum: fixed<32,14>
+        result: fixed<32,14>
+        table: fixed<18,8,TRN,WRAP,0>
+      ReuseFactor: 1
+      TableSize: 1024
+      Trace: false
+    conv2_relu:
+      Precision:
+        result: ufixed<8,2,RND_CONV,SAT,0>
+        table: fixed<18,8,TRN,WRAP,0>
+      ReuseFactor: 1
+      TableSize: 1024
+      Trace: false
+    conv3:
+      ConvImplementation: LineBuffer
+      ParallelizationFactor: 1
+      Precision:
+        accum: fixed<32,14>
+        bias: fixed<8,1,TRN,WRAP,0>
+        result: fixed<32,14>
+        weight: fixed<8,1,TRN,WRAP,0>
+      ReuseFactor: 1
+      Trace: false
+    conv3_linear:
+      Precision:
+        accum: fixed<32,14>
+        result: fixed<32,14>
+        table: fixed<18,8,TRN,WRAP,0>
+      ReuseFactor: 1
+      TableSize: 1024
+      Trace: false
+    conv3_relu:
+      Precision:
+        result: ufixed<8,3,RND_CONV,SAT,0>
+        table: fixed<18,8,TRN,WRAP,0>
+      ReuseFactor: 1
+      TableSize: 1024
+      Trace: false
+    conv_out:
+      ConvImplementation: LineBuffer
+      ParallelizationFactor: 1
+      Precision:
+        accum: fixed<32,14>
+        bias: fixed<8,1,TRN,WRAP,0>
+        result: fixed<32,14>
+        weight: fixed<8,1,TRN,WRAP,0>
+      ReuseFactor: 1
+      Trace: false
+    conv_out_linear:
+      Precision:
+        accum: fixed<32,14>
+        result: fixed<32,14>
+        table: fixed<18,8,TRN,WRAP,0>
+      ReuseFactor: 1
+      TableSize: 1024
+      Trace: false
+    conv_out_q:
+      Precision:
+        result: fixed<10,3,RND_CONV,SAT,0>
+        table: fixed<18,8,TRN,WRAP,0>
+      ReuseFactor: 1
+      TableSize: 1024
+      Trace: false
+    h_ls:
+      Precision:
+        result: fixed<12,4,RND_CONV,SAT>
+      Trace: false
+    pick_iq:
+      ConvImplementation: LineBuffer
+      ParallelizationFactor: 1
+      Precision:
+        accum: fixed<32,14>
+        bias: auto
+        result: fixed<32,14>
+        weight: fixed<2,2,TRN,WRAP,0>
+      ReuseFactor: 1
+      Trace: false
+    pick_iq_linear:
+      Precision:
+        result: auto
+        table: fixed<18,8,TRN,WRAP,0>
+      ReuseFactor: 1
+      TableSize: 1024
+      Trace: false
+    residual:
+      Precision:
+        result: fixed<13,5>
+      ReuseFactor: 1
+      Trace: false
+  Model:
+    BitExact: null
+    BramFactor: 1000000000
+    Precision:
+      default: fixed<16,6>
+    ReuseFactor: 32
+    Strategy: Resource
+    TraceOutput: false
+IOType: io_stream
+InputData: /Users/mertyilmaz/fpga-kanal-kestirici/hls/cnn_snr_p72_tb/x.npy
+InputShapes:
+  h_ls:
+  - 72
+  - 14
+  - 3
+KerasModel: !keras_model '/Users/mertyilmaz/fpga-kanal-kestirici/hls/cnn_snr_p72/keras_model.keras'
+OutputDir: /Users/mertyilmaz/fpga-kanal-kestirici/hls/cnn_snr_p72
+OutputPredictions: /Users/mertyilmaz/fpga-kanal-kestirici/hls/cnn_snr_p72_tb/y.npy
+OutputShapes:
+  layer16_out:
+  - 72
+  - 14
+  - 2
+Part: xczu7ev-ffvc1156-2-e
+ProjectName: chest
+Stamp: 2fda4ea5
+Version: 1.0.0
+WriterConfig:
+  Namespace: null
+  TBOutputStream: both
+  WriteEmulationConstants: false
+  WriteTar: false
+  WriteWeightsTxt: true

@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Veri seti: dataset.py ile yeniden üretilir (~277 MB)
+data/
+
+# hls4ml: Mac'te derlenen paylaşımlı kütüphane, test vektörü kopyaları, Vitis HLS çıktıları
+hls/**/*.so
+hls/*_tb/
+hls/*/chest_prj/
+hls/*/*.tar.gz
+hls/*/vitis_hls.log
+
+# Günlükler
+results/*.log
+
+.DS_Store
