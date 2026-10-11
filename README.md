@@ -57,7 +57,7 @@ ve sabit bir SNR düzlemi. Yapı 4 adet 3×3 konvolüsyondan oluşur (16-16-8-2 
 Python 3.11 gerekir. TensorFlow 2.15 ile QKeras 0.9 bu sürümde uyumlu çalışıyor.
 
 ```bash
-git clone https://github.com/<kullanıcı>/fpga-cnn-channel-estimator.git
+git clone https://github.com/OsmanMertYilmaz/fpga-cnn-channel-estimator.git
 cd fpga-cnn-channel-estimator
 python3.11 -m venv .venv
 .venv/bin/pip install -r requirements.txt
